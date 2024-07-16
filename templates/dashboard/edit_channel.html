@@ -1,0 +1,65 @@
+{% extends 'dashboard_base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Edit Channel Item page {% endblock title %} 
+{% block content %}
+<style>
+    .container{
+        padding-left: 280px;
+        padding-top: 100px;
+    }
+</style>
+<!--Content Goes here-->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-8 col-xl-12">
+      <div class="card shadow-lg p-3 mb-5 rounded">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-header bg-dark">
+            <div class="card-title text-center">
+              <h1 class="text-light">Edit Channel Item</h1>
+            </div>
+          </div>
+          <div class="card-body" style="padding-bottom: 50px">
+            <div style="padding-bottom: 20px">
+             <div class="row">
+                <div class="col-6">
+                  {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                  {{ form.user_name|as_crispy_field }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  {{ form.profile_img|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                  {{ form.cover_img|as_crispy_field }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  {{ form.description|as_crispy_field }}
+                </div>
+              </div>
+            </div>
+            <div style="margin-left: 400px">
+              <button
+                id="submit"
+                type="submit"
+                class="btn btn-success"
+                value="Submit"
+              >
+                Submit
+              </button>
+              <a class="btn btn-danger" href="{% url 'dashboard' %}">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+<!-- class="text-dark text" -->
